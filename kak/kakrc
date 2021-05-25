@@ -1,0 +1,16 @@
+eval %sh{kak-lsp --kakoune -s $kak_session}  # Not needed if you load it with plug.kak.
+lsp-enable
+
+hook global WinSetOption filetype=rust %{
+    hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
+    hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
+    hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
+    hook -once -always window WinSetOption filetype=.* %{
+            remove-hooks window rust-inlay-hints
+    }
+}
+
+map global user l %{: enter-user-mode lsp<ret>} -docstring "LSP mode"
+
+add-highlighter global/ number-lines -relative
+set-option global scrolloff 15,40
