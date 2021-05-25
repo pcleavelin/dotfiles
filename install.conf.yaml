@@ -1,0 +1,18 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~/.config']
+
+- link:
+    ~/.config/kak/kakrc: kak/kakrc
+    ~/.config/kak-lsp: kak-lsp/kak-lsp.toml
+    ~/.config/fish: fish/config.fish
+
+- create:
+    - ~/.config/kak
+    - ~/.config/kak-lsp
+    - ~/.config/fish
+
+- shell:
+    - [chsh -s $(which fish), Change default shell to fish]

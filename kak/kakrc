@@ -1,4 +1,4 @@
-eval %sh{kak-lsp --kakoune -s $kak_session}  # Not needed if you load it with plug.kak.
+eval %sh{kak-lsp --kakoune -s $kak_session -c ~/.config/kak-lsp/kak-lsp.toml}  # Not needed if you load it with plug.kak.
 lsp-enable
 
 hook global WinSetOption filetype=rust %{
