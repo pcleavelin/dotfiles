@@ -10,7 +10,13 @@ hook global WinSetOption filetype=rust %{
     }
 }
 
-map global user l %{: enter-user-mode lsp<ret>} -docstring "LSP mode"
+set tabstop 4
+set indentwidth 4
 
+map global user l %{: enter-user-mode lsp<ret>} -docstring "LSP mode"
+map global insert { {<ret><ret>}<up><tab>
+map global normal ( *hni(<esc>a)<esc>
+
+add-highlighter global/ wrap -word -indent
 add-highlighter global/ number-lines -relative
 set-option global scrolloff 15,40
