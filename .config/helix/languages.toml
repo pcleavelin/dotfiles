@@ -1,0 +1,13 @@
+[[language]]
+name = "python"
+language-server = { command = "pyls" }
+
+[[language]]
+name = "rust"
+language-server = { command = "bash", args = ["/media/patrick/smoldata/Documents/ShowSeeker/pilot/ra.sh"] }
+
+[language.config.cargo]
+allFeatures = true
+[language.config.checkOnSave]
+command = "clippy"
+

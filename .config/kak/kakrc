@@ -1,0 +1,69 @@
+evaluate-commands %sh{ plugins="$kak_config/plugins"
+    if [ ! -d "$plugins/kak-tree" ]; then
+    	git clone https://github.com/ul/kak-tree "$plugins/kak-tree" 
+    	git -C "$plugins/kak-tree/" submodule update --init -- "vendor/tree-sitter-rust" 
+        cargo install --path "$plugins/kak-tree" --force --features "rust"
+    fi
+}
+
+evaluate-commands %sh{
+    plugins="$kak_config/plugins"
+    if [ ! -d "$plugins/plug.kak" ]; then
+    	git clone https://github.com/andreyorst/plug.kak "$plugins/plug.kak" 
+    fi
+}
+
+evaluate-commands %sh{
+    plugins="$kak_config/plugins"
+    if [ ! -d "$plugins/kakoune-surround" ]; then
+    	git clone https://github.com/h-youhei/kakoune-surround "$plugins/kakoune-surround" 
+    fi
+}
+
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
+plug "andreyyorst/plug.kak" noload
+
+source "%val{config}/plugins/kak-tree/rc/tree.kak"
+plug "ul/kak-tree" noload
+set global tree_cmd 'kak-tree -c /home/patrick/.config/kak-tree/kak-tree.toml'
+
+source "%val{config}/plugins/kakoune-surround/surround.kak"
+plug "h-youhei/kakoune-surround" noload
+
+plug "kak-lsp/kak-lsp" do %{
+    cargo install --locked --force --path .
+    mkdir -p ~/.config/kak-lsp
+    cp -n kak-lsp.toml ~/.config/kak-lsp/
+}
+
+plug "andreyorst/fzf.kak"
+
+hook global WinCreate .*\.rs lsp-enable
+hook global WinCreate .*\.rs %{ lsp-inlay-diagnostics-enable global }
+hook global BufWritePre .*\.rs lsp-formatting
+
+add-highlighter global/ number-lines -relative
+
+map global normal <c-p> ': fzf-mode<ret>'
+map global normal <c-c> ': comment-line<ret>'
+
+declare-user-mode find
+map global normal , <space>
+map global normal <space> ': enter-user-mode find<ret>'
+map global find f ': fzf-mode<ret>f' -docstring 'Find file'
+map global find s ': fzf-mode<ret>s' -docstring 'Find in current buffer'
+map global find g ': enter-user-mode cgoto<ret>' -docstring 'goto'
+map global find r ': fzf-mode<ret>g' -docstring 'Search in all files'
+map global find k ' :lsp-hover<ret>' -docstring 'Symbol Info'
+map global find a ' :lsp-code-actions<ret>' -docstring 'Open diagnostics'
+
+declare-user-mode cgoto
+map global cgoto d ' :lsp-definition<ret>' -docstring 'Definition'
+map global cgoto r ' :lsp-references<ret>' -docstring 'References'
+
+declare-user-mode surround
+map global normal m ': enter-user-mode surround<ret>'
+map global surround c ': change-surround<ret>' -docstring 'Change surround character'
+map global surround s ': surround<ret>' -docstring 'Surround selection'
+map global surround d ': delete-surround<ret>' -docstring 'Delete surround'
+
