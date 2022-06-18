@@ -36,7 +36,11 @@ plug "kak-lsp/kak-lsp" do %{
     cp -n kak-lsp.toml ~/.config/kak-lsp/
 }
 
-plug "andreyorst/fzf.kak"
+plug "andreyorst/fzf.kak" defer fzf-grep %{
+    set-option global fzf_grep_preview_command 'batcat --color=always {1} -H {2} -r {2}: --paging=always --pager="less -RF +3G{2}j10K"'
+} defer fzf-file %{
+    set-option global fzf_highlight_command 'batcat --color=always {1}'
+}
 
 hook global WinCreate .*\.rs lsp-enable
 hook global WinCreate .*\.rs %{ lsp-inlay-diagnostics-enable global }
@@ -44,7 +48,6 @@ hook global BufWritePre .*\.rs lsp-formatting
 
 add-highlighter global/ number-lines -relative
 
-map global normal <c-p> ': fzf-mode<ret>'
 map global normal <c-c> ': comment-line<ret>'
 
 declare-user-mode find
