@@ -12,7 +12,17 @@ Plug 'junegunn/fzf.vim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'neovim/nvim-lspconfig'
 
+Plug 'Shougo/ddc.vim'
+Plug 'vim-denops/denops.vim'
+Plug 'delphinus/ddc-treesitter'
+Plug 'Shougo/ddc-nvim-lsp'
+
+Plug 'Shougo/ddc-matcher_head'
+Plug 'Shougo/ddc-sorter_rank'
+
 call plug#end()
+
+runtime ddc_init.vim
 
 set number
 set relativenumber
