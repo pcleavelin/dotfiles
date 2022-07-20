@@ -20,6 +20,8 @@ Plug 'Shougo/ddc-nvim-lsp'
 Plug 'Shougo/ddc-matcher_head'
 Plug 'Shougo/ddc-sorter_rank'
 
+Plug 'nicwest/vim-camelsnek'
+
 call plug#end()
 
 runtime ddc_init.vim
@@ -36,7 +38,7 @@ set smartcase
 set ignorecase
 set incsearch
 
-set nowrap
+set wrap
 set nohlsearch
 set noerrorbells
 set hidden
@@ -57,6 +59,7 @@ colorscheme gruvbox
 
 let mapleader = " "
 nnoremap <leader>f :Files<Enter>
+nnoremap <leader>b :BLines<Enter>
 nnoremap <leader>r :Rg<Enter>
 
 nnoremap gh 0

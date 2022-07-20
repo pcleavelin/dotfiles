@@ -7,10 +7,13 @@ local on_attach = function(buffer, bufnr)
     local bufopts = { noremap=true, silent=true }
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd',        ':lua vim.lsp.buf.definition()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',        ':lua vim.lsp.buf.references()<Enter>', bufopts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>i', ':lua vim.lsp.buf.implementation()<Enter>', bufopts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', ':lua vim.lsp.buf.implementation()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', ':lua vim.lsp.buf.hover()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>R', ':lua vim.lsp.buf.rename()<Enter>', bufopts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>qf', ':lua vim.diagnostic.setqflist()<Enter>', bufopts)
 end
+
+vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting()" })
 
 local lsp_flags = {
     debounce_text_changes = 150
