@@ -9,11 +9,17 @@ local on_attach = function(buffer, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',        ':lua vim.lsp.buf.references()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', ':lua vim.lsp.buf.implementation()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', ':lua vim.lsp.buf.hover()<Enter>', bufopts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', ':lua vim.lsp.buf.code_action()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>R', ':lua vim.lsp.buf.rename()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>qf', ':lua vim.diagnostic.setqflist()<Enter>', bufopts)
 end
 
-vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting()" })
+-- vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting()" })
+vim.cmd([[
+    augroup pat_lsp
+        autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()
+    augroup END
+]])
 
 local lsp_flags = {
     debounce_text_changes = 150
