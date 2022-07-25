@@ -17,4 +17,11 @@ return require('packer').startup(function()
   use 'Shougo/ddc-sorter_rank'
 
   use 'nicwest/vim-camelsnek'
+
+  use({
+      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+          require("lsp_lines").setup()
+      end,
+  })
 end)

@@ -13,6 +13,9 @@ local on_attach = function(buffer, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', ':lua vim.lsp.buf.code_action()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>R', ':lua vim.lsp.buf.rename()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>qf', ':lua vim.diagnostic.setqflist()<Enter>', bufopts)
+
+    require("lsp_lines").setup()
+    vim.diagnostic.config({ virtual_lines = true, virtual_text = false })
 end
 
 -- vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting()" })
