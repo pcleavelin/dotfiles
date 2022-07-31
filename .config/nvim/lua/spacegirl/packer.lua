@@ -5,14 +5,22 @@ return require('packer').startup(function()
 
   use 'junegunn/fzf'
   use 'junegunn/fzf.vim'
-  use 'gruvbox-community/gruvbox'
+  use 'tpope/vim-fugitive'
   use 'neovim/nvim-lspconfig'
+  use({
+      "kylechui/nvim-surround",
+      config = function()
+          require("nvim-surround").setup({})
+      end
+  })
+
+  use 'gruvbox-community/gruvbox'
+  use 'folke/tokyonight.nvim'
 
   use 'Shougo/ddc.vim'
   use 'vim-denops/denops.vim'
   use 'delphinus/ddc-treesitter'
   use 'Shougo/ddc-nvim-lsp'
-
   use 'Shougo/ddc-matcher_head'
   use 'Shougo/ddc-sorter_rank'
 

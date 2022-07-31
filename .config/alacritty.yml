@@ -1,2 +1,6 @@
 window:
   opacity: 0.95
+
+font:
+  normal:
+    family: Fura Code Nerd Font
