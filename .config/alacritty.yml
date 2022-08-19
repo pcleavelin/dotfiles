@@ -3,4 +3,7 @@ window:
 
 font:
   normal:
-    family: Fura Code Nerd Font
+    family: Fura Code Nerd Font Mono
+  italic:
+    family: Fura Code Nerd Font Mono
+

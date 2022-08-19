@@ -16,6 +16,8 @@ return require('packer').startup(function()
 
   use 'gruvbox-community/gruvbox'
   use 'folke/tokyonight.nvim'
+  use 'vim-airline/vim-airline'
+  use 'kien/rainbow_parentheses.vim' 
 
   use 'Shougo/ddc.vim'
   use 'vim-denops/denops.vim'
