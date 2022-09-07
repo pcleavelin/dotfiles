@@ -34,4 +34,6 @@ return require('packer').startup(function()
           require("lsp_lines").setup()
       end,
   })
+
+  use '/home/patrick/Documents/bbpr'
 end)
