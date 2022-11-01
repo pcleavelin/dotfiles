@@ -1,6 +1,7 @@
 -- LSP Config
-local rust_toolchain = vim.fn.system('rustup show | tail -n 3 | head -n 1 | cut -d " " -f1')
-local ra_path = vim.env.HOME..'/.rustup/toolchains/' .. vim.fn.trim(rust_toolchain) .. '/bin/rust-analyzer'
+-- local rust_toolchain = vim.fn.system('rustup show | tail -n 3 | head -n 1 | cut -d " " -f1')
+-- local ra_path = vim.env.HOME..'/.rustup/toolchains/' .. vim.fn.trim(rust_toolchain) .. '/bin/rust-analyzer'
+local ra_path = vim.fn.system('which rust-analyzer')
 
 local on_attach = function(buffer, bufnr)
     -- See `:help vim.lsp.*`
@@ -34,7 +35,7 @@ require('lspconfig')['rust_analyzer'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
 
-    cmd = { ra_path },
+    --cmd = { ra_path },
     settings = {
         ["rust-analyzer"] = {
             checkOnSave = {

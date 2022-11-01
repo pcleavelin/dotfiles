@@ -18,3 +18,5 @@ nnoremap("gl", "$")
 nnoremap("gk", "gg")
 nnoremap("gj", "G")
 
+-- Expand '{}' into block
+nmap("<leader><CR>", "ghf}i<CR><c-o>O")

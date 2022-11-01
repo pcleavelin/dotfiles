@@ -29,7 +29,7 @@ vim.opt.cmdheight = 2
 vim.g.mapleader = " "
 
 -- secrets used for special logins
-require('spacegirl.secrets').setup()
+-- require('spacegirl.secrets').setup()
 
 vim.cmd([[
     augroup pat_fugitive
