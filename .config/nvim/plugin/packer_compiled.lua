@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/patrick/.local/share/nvim/site/pack/packer/start/ddc-treesitter",
     url = "https://github.com/delphinus/ddc-treesitter"
   },
+  ["ddc-ui-native"] = {
+    loaded = true,
+    path = "/home/patrick/.local/share/nvim/site/pack/packer/start/ddc-ui-native",
+    url = "https://github.com/Shougo/ddc-ui-native"
+  },
   ["ddc.vim"] = {
     loaded = true,
     path = "/home/patrick/.local/share/nvim/site/pack/packer/start/ddc.vim",
@@ -146,6 +151,11 @@ _G.packer_plugins = {
     path = "/home/patrick/.local/share/nvim/site/pack/packer/start/rainbow_parentheses.vim",
     url = "https://github.com/kien/rainbow_parentheses.vim"
   },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/patrick/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    url = "https://github.com/simrat39/rust-tools.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/home/patrick/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
@@ -165,6 +175,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/patrick/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["vim-nix"] = {
+    loaded = true,
+    path = "/home/patrick/.local/share/nvim/site/pack/packer/start/vim-nix",
+    url = "https://github.com/LnL7/vim-nix"
   }
 }
 

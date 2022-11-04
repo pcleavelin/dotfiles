@@ -1,7 +1,11 @@
-" Customize global settings
+" You must set the default ui.
+" Note: native ui
+" https://github.com/Shougo/ddc-ui-native
+call ddc#custom#patch_global('ui', 'native')" Customize global settings
+
 " Use around source.
 " https://github.com/Shougo/ddc-around
-call ddc#custom#patch_global('sources', ['nvim-lsp', 'treesitter'])
+call ddc#custom#patch_global('sources', ['nvim-lsp'])
 
 " Use matcher_head and sorter_rank.
 " https://github.com/Shougo/ddc-matcher_head
@@ -38,12 +42,12 @@ call ddc#custom#patch_filetype(['rs'], 'sourceOptions', {
 
 " <TAB>: completion.
 inoremap <silent><expr> <TAB>
-\ ddc#map#pum_visible() ? '<C-n>' :
+\ pumvisible() ? '<C-n>' :
 \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
 \ '<TAB>' : ddc#map#manual_complete()
 
 " <S-TAB>: completion back.
-inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+inoremap <expr><S-TAB>  pumvisible() ? '<C-p>' : '<C-h>'
 
 " Use ddc.
 call ddc#enable()

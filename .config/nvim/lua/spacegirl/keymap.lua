@@ -9,7 +9,7 @@ nnoremap("<leader>r", "<cmd>Rg<CR>")
 -- Surround with `Option<_>`
 vim.cmd([[
     augroup pat_surround
-        autocmd VimEnter *.rs nmap <leader>so ysiw>iOption<ESC>
+        autocmd FileType rust nmap <buffer> <leader>so ysiw>iOption<ESC>
     augroup END
 ]])
 

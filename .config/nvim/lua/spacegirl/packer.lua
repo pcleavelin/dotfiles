@@ -18,6 +18,7 @@ return require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'tpope/vim-fugitive'
   use 'neovim/nvim-lspconfig'
+  use 'simrat39/rust-tools.nvim'
   use({
       "kylechui/nvim-surround",
       config = function()
@@ -30,9 +31,9 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline'
   use 'kien/rainbow_parentheses.vim' 
 
-  use 'Shougo/ddc.vim'
   use 'vim-denops/denops.vim'
-  use 'delphinus/ddc-treesitter'
+  use 'Shougo/ddc.vim'
+  use 'Shougo/ddc-ui-native'
   use 'Shougo/ddc-nvim-lsp'
   use 'Shougo/ddc-matcher_head'
   use 'Shougo/ddc-sorter_rank'
