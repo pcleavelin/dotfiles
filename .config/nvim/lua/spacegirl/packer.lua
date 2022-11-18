@@ -18,7 +18,6 @@ return require('packer').startup(function()
   use 'junegunn/fzf.vim'
   use 'tpope/vim-fugitive'
   use 'neovim/nvim-lspconfig'
-  use 'simrat39/rust-tools.nvim'
   use({
       "kylechui/nvim-surround",
       config = function()
