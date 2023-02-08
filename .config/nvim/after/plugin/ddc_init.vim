@@ -1,7 +1,7 @@
 " You must set the default ui.
 " Note: native ui
 " https://github.com/Shougo/ddc-ui-native
-call ddc#custom#patch_global('ui', 'native')" Customize global settings
+call ddc#custom#patch_global('ui', 'native')
 
 " Use around source.
 " https://github.com/Shougo/ddc-around
@@ -17,7 +17,8 @@ call ddc#custom#patch_global('sourceOptions', {
       \ },
       \ 'nvim-lsp': {
       \     'mark': 'lsp',
-      \     'forceCompletionPatterns': '\.\w*|:\w*'
+      \     'forceCompletionPatterns': '\.|:',
+      \     'minAutoCompleteLength': 1,
       \ }
 \ })
 

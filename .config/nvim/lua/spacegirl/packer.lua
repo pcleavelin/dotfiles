@@ -25,6 +25,9 @@ return require('packer').startup(function()
       end
   })
 
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'eandrju/cellular-automaton.nvim' 
+
   use 'gruvbox-community/gruvbox'
   use 'folke/tokyonight.nvim'
   use 'vim-airline/vim-airline'
@@ -47,5 +50,5 @@ return require('packer').startup(function()
       end,
   })
 
-  --use '/home/patrick/Documents/bbpr'
+  use '/run/media/patrick/lap_data/Documents/bbpr'
 end)

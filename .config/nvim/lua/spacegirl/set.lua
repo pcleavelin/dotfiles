@@ -25,12 +25,12 @@ vim.opt.scrolloff = 16
 vim.opt.colorcolumn = {80}
 vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 2
-vim.opt.guifont = 'FiraCode Nerd Font:h11'
+vim.opt.guifont = 'FiraCode Nerd Font Mono:h11'
 
 vim.g.mapleader = " "
 
 -- secrets used for special logins
--- require('spacegirl.secrets').setup()
+require('spacegirl.secrets').setup()
 
 vim.cmd([[
     augroup pat_fugitive
