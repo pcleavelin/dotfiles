@@ -7,14 +7,14 @@ local ra_path = vim.fn.system('which rust-analyzer')
 local on_attach = function(buffer, bufnr)
     -- See `:help vim.lsp.*`
     local bufopts = { noremap=true, silent=true }
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd',        ':lua vim.lsp.buf.definition()<Enter>', bufopts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',        ':lua vim.lsp.buf.references()<Enter>', bufopts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd',        ':lua vim.lsp.buf.definition()<Enter>', bufopts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr',        ':lua vim.lsp.buf.references()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gi', ':lua vim.lsp.buf.implementation()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>k', ':lua vim.lsp.buf.hover()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>j', ':lua vim.diagnostic.open_float()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>a', ':lua vim.lsp.buf.code_action()<Enter>', bufopts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>R', ':lua vim.lsp.buf.rename()<Enter>', bufopts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>qf', ':lua vim.diagnostic.setqflist()<Enter>', bufopts)
+    -- vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>qf', ':lua vim.diagnostic.setqflist()<Enter>', bufopts)
 
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>a', ':lua vim.lsp.buf.range_code_action()<Enter>', bufopts)
     --require("lsp_lines").setup()
@@ -63,9 +63,14 @@ local lsp_flags = {
 --     end,
 --   },
 -- })
+
+-- Setup nvim-cmp with lsp
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 require('lspconfig')['rust_analyzer'].setup({
     on_attach = on_attach,
     flags = lsp_flags,
+    capabilities = capabilities,
 
     --cmd = { ra_path },
     settings = {

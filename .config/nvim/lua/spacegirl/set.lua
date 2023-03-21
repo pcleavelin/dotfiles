@@ -25,7 +25,7 @@ vim.opt.scrolloff = 16
 vim.opt.colorcolumn = {80}
 vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 2
-vim.opt.guifont = 'FiraCode Nerd Font Mono:h11'
+vim.opt.guifont = 'JetBrains:h12'
 
 vim.g.mapleader = " "
 

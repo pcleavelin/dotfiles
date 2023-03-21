@@ -14,8 +14,10 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
-  use 'junegunn/fzf'
-  use 'junegunn/fzf.vim'
+  use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
   use 'tpope/vim-fugitive'
   use 'neovim/nvim-lspconfig'
   use({
@@ -33,15 +35,14 @@ return require('packer').startup(function()
   use 'vim-airline/vim-airline'
   use 'kien/rainbow_parentheses.vim' 
 
-  use 'vim-denops/denops.vim'
-  use 'Shougo/ddc.vim'
-  use 'Shougo/ddc-ui-native'
-  use 'Shougo/ddc-nvim-lsp'
-  use 'Shougo/ddc-matcher_head'
-  use 'Shougo/ddc-sorter_rank'
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/vim-vsnip'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
 
   use 'nicwest/vim-camelsnek'
   use 'LnL7/vim-nix'
+  use 'evanleck/vim-svelte'
 
   use({
       "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -49,6 +50,8 @@ return require('packer').startup(function()
           require("lsp_lines").setup()
       end,
   })
+
+  use 'mbbill/undotree'
 
   use '/run/media/patrick/lap_data/Documents/bbpr'
 end)

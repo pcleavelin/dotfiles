@@ -1,17 +1,25 @@
 local remap = require("spacegirl.remap")
 local nnoremap = remap.nnoremap
 local nmap = remap.nmap
+local tnoremap = remap.tnoremap
 
-nnoremap("<leader>f", "<cmd>Files<CR>")
-nnoremap("<leader>b", "<cmd>BLines<CR>")
-nnoremap("<leader>r", "<cmd>Rg<CR>")
+nnoremap("<leader>f", "<cmd>Telescope find_files<CR>")
+nnoremap("<leader>b", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+nnoremap("<leader>B", "<cmd>Telescope buffers<CR>")
+nnoremap("<leader>r", "<cmd>Telescope grep_string search=\"<CR>")
+nnoremap("<leader>d", "<cmd>Telescope diagnostics<CR>")
+nnoremap("gr", "<cmd>Telescope lsp_references<CR>")
+nnoremap("gd", "<cmd>Telescope lsp_definitions<CR>")
+nnoremap("gy", "<cmd>Telescope lsp_type_definitions<CR>")
+nnoremap("gq", "<cmd>Telescope diagnostics<CR>")
+tnoremap("<ESC>", "<C-\\><C-N>")
 
 -- Surround with `Option<_>`
 -- Expand '{}' into block
 vim.cmd([[
     augroup pat_surround
         autocmd FileType rust nmap <buffer> <leader>so ysiw>iOption<ESC>
-        autocmd FileType rust nmap <buffer> <leader><CR> ghf}i<CR><c-o>O
+        autocmd FileType * nmap <buffer> <leader><CR> glF{a<CR><c-o>O
     augroup END
 ]])
 
