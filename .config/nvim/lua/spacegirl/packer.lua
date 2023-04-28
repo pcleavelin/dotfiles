@@ -14,6 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
+  use "skywind3000/asyncrun.vim"
   use {
       'nvim-telescope/telescope.nvim', tag = '0.1.1',
       requires = { {'nvim-lua/plenary.nvim'} }
@@ -29,6 +30,7 @@ return require('packer').startup(function()
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'eandrju/cellular-automaton.nvim' 
+  use 'sheerun/vim-polyglot'
 
   use 'gruvbox-community/gruvbox'
   use 'folke/tokyonight.nvim'
