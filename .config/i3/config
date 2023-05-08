@@ -38,8 +38,10 @@ exec --no-startup-id nm-applet
 exec --no-startup-id picom
 
 # Start polybar
-exec killall -q polybar
-exec_always --no-startup-id polybar
+exec_always --no-startup-id ~/.config/i3/scripts/polybar.sh
+
+# Setup rotating wallpapers
+exec_always --no-startup-id bash ~/.config/i3/scripts/wallpaper.sh
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
