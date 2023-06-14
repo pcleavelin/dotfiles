@@ -34,6 +34,8 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+exec --no-startup-id ~/.config/i3/scripts/caps_lock_is_backspace.sh
+
 # Start Picom
 exec --no-startup-id picom
 

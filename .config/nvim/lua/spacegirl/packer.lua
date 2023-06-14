@@ -32,6 +32,7 @@ return require('packer').startup(function()
   use 'eandrju/cellular-automaton.nvim' 
   use 'sheerun/vim-polyglot'
 
+  use 'rose-pine/neovim'
   use 'gruvbox-community/gruvbox'
   use 'folke/tokyonight.nvim'
   use 'vim-airline/vim-airline'
