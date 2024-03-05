@@ -18,20 +18,19 @@ local on_attach = function(buffer, bufnr)
 
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>a', ':lua vim.lsp.buf.range_code_action()<Enter>', bufopts)
     --require("lsp_lines").setup()
-    --vim.diagnostic.config({ virtual_lines = true, virtual_text = true })
+    vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = true })
 end
 
 -- vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting()" })
 vim.cmd([[
     augroup pat_lsp
-        autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()
+        autocmd BufWritePre *.rs lua vim.lsp.buf.format()
     augroup END
 ]])
 
 local lsp_flags = {
     debounce_text_changes = 150
 }
-
 
 -- rt.setup({
 --   server = {
@@ -78,7 +77,7 @@ require('lspconfig')['rust_analyzer'].setup({
             checkOnSave = {
                 command = "clippy",
                 extraArgs = { 
-                    "--target-dir", "/tmp/rust-analyzer-check"
+                    "--target-dir", "/tmp/rust-analyzer-check", "--no-deps"
                 }
             }
         }

@@ -6,7 +6,7 @@ local tnoremap = remap.tnoremap
 nnoremap("<leader>f", "<cmd>Telescope find_files<CR>")
 nnoremap("<leader>b", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
 nnoremap("<leader>B", "<cmd>Telescope buffers<CR>")
-nnoremap("<leader>r", "<cmd>Telescope grep_string search=\"<CR>")
+nnoremap("<leader>r", "<cmd>Telescope live_grep search=\"<CR>")
 nnoremap("<leader>d", "<cmd>Telescope diagnostics<CR>")
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR><cmd>UndotreeFocus<CR>`")
 nnoremap("gr", "<cmd>Telescope lsp_references<CR>")

@@ -18,7 +18,7 @@ vim.opt.hidden = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "/home/patrick/.config/nvim/undodir"
+vim.opt.undodir = "/Users/temp/.config/nvim/undodir"
 vim.opt.undofile = true
 
 vim.opt.scrolloff = 16
@@ -30,7 +30,7 @@ vim.opt.guifont = 'JetBrains Mono:h12'
 vim.g.mapleader = " "
 
 -- secrets used for special logins
-require('spacegirl.secrets').setup()
+-- require('spacegirl.secrets').setup()
 
 vim.cmd([[
     augroup pat_fugitive

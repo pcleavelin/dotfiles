@@ -16,7 +16,7 @@ return require('packer').startup(function()
 
   use "skywind3000/asyncrun.vim"
   use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.1',
+      'nvim-telescope/telescope.nvim',
       requires = { {'nvim-lua/plenary.nvim'} }
   }
   use 'tpope/vim-fugitive'
@@ -29,14 +29,14 @@ return require('packer').startup(function()
   })
 
   use 'nvim-treesitter/nvim-treesitter'
-  use 'eandrju/cellular-automaton.nvim' 
+  -- use 'eandrju/cellular-automaton.nvim'
   use 'sheerun/vim-polyglot'
 
   use 'rose-pine/neovim'
   use 'gruvbox-community/gruvbox'
   use 'folke/tokyonight.nvim'
   use 'vim-airline/vim-airline'
-  use 'kien/rainbow_parentheses.vim' 
+  use 'kien/rainbow_parentheses.vim'
 
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/vim-vsnip'
@@ -55,6 +55,14 @@ return require('packer').startup(function()
   })
 
   use 'mbbill/undotree'
+  use 'Tetralux/odin.vim'
+  use {
+    'ruifm/gitlinker.nvim',
+    requires = 'nvim-lua/plenary.nvim',
+    config = function()
+      require("gitlinker").setup()
+    end
+  }
 
-  use '/run/media/patrick/lap_data/Documents/bbpr'
+  use 'pcleavelin/bbpr-nvim'
 end)

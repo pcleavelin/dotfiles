@@ -5,9 +5,11 @@ vim.cmd('let g:neovide_floating_blur_amount_y = 2.0')
 vim.cmd('let g:neovide_hide_mouse_when_typing=v:true')
 vim.cmd('let g:gruvbox_transparent_bg = 1')
 vim.cmd('let g:gruvbox_contrast_light = "hard"')
-vim.cmd('set bg=light')
+vim.cmd('let g:gruvbox_contrast_dark = "medium"')
+vim.cmd('set bg=dark')
 
 -- Enable transparent background
+-- vim.cmd('colorscheme rose-pine-moon')
 vim.cmd('colorscheme gruvbox')
 
 -- vim.cmd('highlight Normal guibg=none ctermbg=none')
