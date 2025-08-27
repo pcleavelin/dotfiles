@@ -18,13 +18,16 @@ local on_attach = function(buffer, bufnr)
 
     vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>a', ':lua vim.lsp.buf.range_code_action()<Enter>', bufopts)
     --require("lsp_lines").setup()
-    vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = true })
+    vim.diagnostic.config({ virtual_lines = { only_current_line = true }, virtual_text = false })
 end
 
 -- vim.api.nvim_create_autocmd("BufWritePre", { command = "lua vim.lsp.buf.formatting()" })
 vim.cmd([[
     augroup pat_lsp
         autocmd BufWritePre *.rs lua vim.lsp.buf.format()
+        autocmd BufWritePre *.gleam lua vim.lsp.buf.format()
+        autocmd BufWritePre *.c lua vim.lsp.buf.format()
+        autocmd BufWritePre *.h lua vim.lsp.buf.format()
     augroup END
 ]])
 
@@ -79,11 +82,42 @@ require('lspconfig')['rust_analyzer'].setup({
                 extraArgs = { 
                     "--target-dir", "/tmp/rust-analyzer-check", "--no-deps"
                 }
-            }
+            },
+            showUnlinkedFileNotification = false,
         }
     }
 })
 
 require('lspconfig')['tsserver'].setup {
-    filetypes = { "javascript", "typescript", "svelte" }
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+
+    filetypes = { "javascript", "typescript", "svelte" },
 }
+
+require('lspconfig')['gleam'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+})
+
+require('lspconfig')['gopls'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+})
+
+require('lspconfig')['clangd'].setup({
+    on_attach = on_attach,
+    flags = lsp_flags,
+    capabilities = capabilities,
+
+    cmd = {
+        "clangd", "--query-driver", "$(which clang)"
+    },
+    settings = {
+        ["clangd"] = {
+        }
+    }
+})

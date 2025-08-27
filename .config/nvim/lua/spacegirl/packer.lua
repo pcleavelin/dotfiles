@@ -41,18 +41,25 @@ return require('packer').startup(function()
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/vim-vsnip'
   use 'hrsh7th/cmp-nvim-lsp'
-  use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+  -- use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
+  use { 'supermaven-inc/supermaven-nvim', config = function() require('supermaven-nvim').setup({}) end }
 
   use 'nicwest/vim-camelsnek'
   use 'LnL7/vim-nix'
   use 'evanleck/vim-svelte'
 
-  use({
-      "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  use {
+      'numToStr/Comment.nvim',
       config = function()
-          require("lsp_lines").setup()
-      end,
-  })
+          require('Comment').setup()
+      end
+  }
+  -- use({
+  --     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --     config = function()
+  --         require("lsp_lines").setup()
+  --     end,
+  -- })
 
   use 'mbbill/undotree'
   use 'Tetralux/odin.vim'

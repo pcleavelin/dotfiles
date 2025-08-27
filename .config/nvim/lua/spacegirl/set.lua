@@ -22,10 +22,10 @@ vim.opt.undodir = "/Users/temp/.config/nvim/undodir"
 vim.opt.undofile = true
 
 vim.opt.scrolloff = 16
-vim.opt.colorcolumn = {80}
+vim.opt.colorcolumn = {100}
 vim.opt.signcolumn = "yes"
 vim.opt.cmdheight = 2
-vim.opt.guifont = 'JetBrains Mono:h12'
+vim.opt.guifont = 'TX-02 Regular:h12'
 
 vim.g.mapleader = " "
 

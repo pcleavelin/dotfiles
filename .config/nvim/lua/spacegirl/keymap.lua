@@ -22,8 +22,16 @@ vim.cmd([[
         autocmd FileType rust nmap <buffer> <leader>so ysiw>iOption<ESC>
         autocmd FileType * nmap <buffer> <leader><CR> glF{a<CR><c-o>O
         autocmd FileType rust set efm=%Eerror%.%#:\ %m,%C%.%#-->\ %f:%l:%c,%C%.%#\|%.%#,%Z,%Wwarning%.%#:\ %m,%C%.%#-->\ %f:%l:%c,%C%.%#\|%.%#,%Z,%Nnote%.%#:\ %m,%C%.%#-->\ %f:%l:%c,%C%.%#\|%.%#,%Z
+
+        autocmd FileType rust :RainbowParenthesesActivate
+        autocmd FileType rust :RainbowParenthesesLoadRound
+        autocmd FileType rust :RainbowParenthesesLoadSquare
+        autocmd FileType rust :RainbowParenthesesLoadBraces
+        autocmd FileType rust :RainbowParenthesesLoadChevrons
     augroup END
 ]])
+
+vim.api.nvim_create_user_command('W', 'w', {})
 
 nnoremap("gh", "0")
 nnoremap("gl", "$")

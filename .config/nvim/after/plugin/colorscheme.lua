@@ -10,7 +10,7 @@ vim.cmd('set bg=dark')
 
 -- Enable transparent background
 -- vim.cmd('colorscheme rose-pine-moon')
-vim.cmd('colorscheme gruvbox')
+vim.cmd('colorscheme tokyonight-storm')
 
 -- vim.cmd('highlight Normal guibg=none ctermbg=none')
 -- vim.cmd('highlight NormalNC guibg=none')
